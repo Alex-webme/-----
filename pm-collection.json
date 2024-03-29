@@ -1,0 +1,989 @@
+{
+	"info": {
+		"_postman_id": "6b72d852-5504-4c59-888b-1f763e5649b0",
+		"name": "Тестовое от Вити",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25555022"
+	},
+	"item": [
+		{
+			"name": "Accrue Points",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 1000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/customer/<customer_id>/purchase",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"<customer_id>",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Points",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/customer/{customer_id}/points",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"{customer_id}",
+						"points"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Discount",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"quantity\": 1000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/discount/calculate",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"discount",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AP-0",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": -1 // 400-ка\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/customer/001/purchase",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"001",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AP-1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 999.99 // начисляется 0 баллов, GP-1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/customer/001/purchase",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"001",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AP-2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 1000 // начисляется 1 балл, GP-2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/customer/002/purchase",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"002",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AP-3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 100000 // начисялется 100 баллов, GP-3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/customer/003/purchase",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"003",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AP-4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 149000.99 // начисляется 149 баллов, GP-4\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/customer/004/purchase",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"004",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AP-5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 150000 // начисляется 150 баллов, GP-5\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/customer/005/purchase",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"005",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AP-6",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 190000 // начисляется 190 баллов, GP-6\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/customer/006/purchase",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"006",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AP-7",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 199000.99 // начисляется 199 баллов, GP-7\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/customer/007/purchase",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"007",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AP-8",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 200000 // начисляется 200 баллов, GP-8\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/customer/008/purchase",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"008",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AP-9",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 300000 // начисляется 300 баллов, GP-9\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/customer/009/purchase",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"009",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AP-10",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 399000.99 // начисляется 399 баллов, GP-10\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/customer/010/purchase",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"010",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AP-11",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 400000 // начисляется 400 баллов, GP-11\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/customer/011/purchase",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"011",
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GP-0",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/customer/2024/points",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"2024",
+						"points"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GP-1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/customer/001/points",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"001",
+						"points"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GP-2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/customer/002/points",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"002",
+						"points"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GP-3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/customer/003/points",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"003",
+						"points"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GP-4",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/customer/004/points",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"004",
+						"points"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GP-5",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/customer/005/points",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"005",
+						"points"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GP-6",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/customer/006/points",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"006",
+						"points"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GP-7",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/customer/007/points",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"007",
+						"points"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GP-8",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/customer/008/points",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"008",
+						"points"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GP-9",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/customer/009/points",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"009",
+						"points"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GP-10",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/customer/010/points",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"010",
+						"points"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GP-11",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/api/customer/011/points",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"customer",
+						"011",
+						"points"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GD-1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"points\": 0 // скидка 1%\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/discount/calculate",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"discount",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GD-2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"points\": 100 // скидка 1%\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/discount/calculate",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"discount",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GD-3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"points\": 149 // скидка 1%\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/discount/calculate",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"discount",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GD-4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"points\": 150 // скидка 5%\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/discount/calculate",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"discount",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GD-5",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"points\": 190 // скидка 5%\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/discount/calculate",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"discount",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GD-6",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"points\": 199 // скидка 5%\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/discount/calculate",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"discount",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GD-7",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"points\": 200 // скидка 7%\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/discount/calculate",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"discount",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GD-8",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"points\": 300 // скидка 7%\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/discount/calculate",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"discount",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GD-9",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"points\": 399 // скидка 7%\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/discount/calculate",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"discount",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GD-10",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"points\": 400 // скидка 10%\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/api/discount/calculate",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"api",
+						"discount",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "https://webme.com",
+			"type": "string"
+		},
+		{
+			"key": "TOKEN",
+			"value": "tokenExample",
+			"type": "string"
+		}
+	]
+}
